@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from df_goods import views
 #分发路由信息
 urlpatterns = [
     #url后台
@@ -30,4 +31,6 @@ urlpatterns = [
     url(r'^cart/',include('df_cart.urls')),
     #url订单
     url(r'^order/',include('df_order.urls')),
+
+    url(r'^$', views.index),
 ]

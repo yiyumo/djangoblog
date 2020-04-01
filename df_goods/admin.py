@@ -4,10 +4,10 @@ from django.contrib import admin
 from models import TypeInfo
 from models import GoodsInfo
 
-# # 后台类型管理
-# class TypeInfoAdmin(admin.ModelAdmin):
-#     # 展示字段
-#     list_display = ['id', 'ttitle']
+# 后台类型管理
+class TypeInfoAdmin(admin.ModelAdmin):
+    # 展示字段
+    list_display = ['id', 'ttitle']
 
 # 后台商品管理
 class GoodsInfoAdmin(admin.ModelAdmin):
@@ -23,5 +23,5 @@ class GoodsInfoAdmin(admin.ModelAdmin):
 admin.site.site_header = "天天水果商家管理"
 admin.site.site_title = "天天水果后台"
 # 注册两个信息进行管理
-# admin.site.register(TypeInfo, TypeInfoAdmin)
+admin.site.register(TypeInfo, TypeInfoAdmin)
 admin.site.register(GoodsInfo, GoodsInfoAdmin)

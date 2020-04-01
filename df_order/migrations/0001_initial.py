@@ -15,24 +15,40 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='OrderDetailInfo',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('price', models.DecimalField(verbose_name='\u4ef7\u94b1', max_digits=5, decimal_places=2)),
-                ('count', models.IntegerField(verbose_name='\u6570\u91cf')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('price', models.DecimalField(verbose_name='价钱', max_digits=5, decimal_places=2)),
+                ('count', models.IntegerField(verbose_name='数量')),
+                ('isTrue', models.BooleanField(default=False)),
                 ('goods', models.ForeignKey(to='df_goods.GoodsInfo')),
             ],
+            options={
+                'verbose_name_plural': '发货管理',
+            },
         ),
         migrations.CreateModel(
             name='OrderInfo',
             fields=[
-                ('oid', models.CharField(max_length=20, serialize=False, primary_key=True)),
-                ('odate', models.DateTimeField(auto_now=True, verbose_name='\u8d2d\u4e70\u65e5\u671f')),
-                ('oIsPay', models.BooleanField(default=False, verbose_name='\u662f\u5426\u4ed8\u6b3e')),
-                ('ototal', models.DecimalField(verbose_name='\u603b\u4ef7', max_digits=6, decimal_places=2)),
-                ('oaddress', models.CharField(max_length=150, verbose_name='\u6536\u8d27\u5730\u5740')),
+                ('oid', models.CharField(primary_key=True, max_length=20, serialize=False)),
+                ('odate', models.DateTimeField(verbose_name='购买日期', auto_now=True)),
+                ('oIsPay', models.BooleanField(verbose_name='是否付款', default=False)),
+                ('ototal', models.DecimalField(verbose_name='总价', max_digits=6, decimal_places=2)),
+                ('oaddress', models.CharField(verbose_name='收货地址', max_length=150)),
                 ('user', models.ForeignKey(to='df_user.UserInfo')),
             ],
             options={
-                'verbose_name_plural': '\u8ba2\u5355\u7ba1\u7406',
+                'verbose_name_plural': '订单管理',
+            },
+        ),
+        migrations.CreateModel(
+            name='sales',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('count', models.IntegerField(verbose_name='销量')),
+                ('totalprice', models.DecimalField(verbose_name='销售额', max_digits=5, decimal_places=2)),
+                ('goods', models.ForeignKey(to='df_goods.GoodsInfo')),
+            ],
+            options={
+                'verbose_name_plural': '销量查看',
             },
         ),
         migrations.AddField(

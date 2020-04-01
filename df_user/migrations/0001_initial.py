@@ -13,17 +13,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='UserInfo',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('uname', models.CharField(max_length=20, verbose_name='\u7528\u6237\u540d')),
-                ('upwd', models.CharField(max_length=40, verbose_name='\u5bc6\u7801')),
-                ('uemail', models.CharField(max_length=30, verbose_name='\u7535\u5b50\u90ae\u7bb1')),
-                ('ushow', models.CharField(default=b'', max_length=20, verbose_name='\u6536\u4ef6\u4eba\u540d\u5b57')),
-                ('uaddress', models.CharField(default=b'', max_length=100, verbose_name='\u6536\u4ef6\u5730\u5740')),
-                ('uyoubian', models.CharField(default=b'', max_length=6, verbose_name='\u6536\u4ef6\u90ae\u7f16')),
-                ('uphone', models.CharField(default=b'', max_length=11, verbose_name='\u6536\u4ef6\u4eba\u7535\u8bdd')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('uname', models.CharField(verbose_name='用户名', max_length=20)),
+                ('upwd', models.CharField(verbose_name='密码', max_length=40)),
+                ('uemail', models.CharField(verbose_name='电子邮箱', max_length=30)),
+                ('ushow', models.CharField(verbose_name='收件人名字', max_length=20, default='')),
+                ('uaddress', models.CharField(verbose_name='收件地址', max_length=100, default='')),
+                ('uyoubian', models.CharField(verbose_name='收件邮编', max_length=6, default='')),
+                ('uphone', models.CharField(verbose_name='收件人电话', max_length=11, default='')),
             ],
             options={
-                'verbose_name_plural': '\u7528\u6237\u7ba1\u7406',
+                'verbose_name_plural': '用户管理',
             },
         ),
     ]

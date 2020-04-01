@@ -14,30 +14,30 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='GoodsInfo',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('gtitle', models.CharField(max_length=20, verbose_name='\u540d\u5b57')),
-                ('gpic', models.ImageField(upload_to=b'df_goods', verbose_name='\u56fe\u7247')),
-                ('gprice', models.DecimalField(verbose_name='\u4ef7\u94b1', max_digits=5, decimal_places=2)),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('gtitle', models.CharField(verbose_name='名字', max_length=20)),
+                ('gpic', models.ImageField(verbose_name='图片', upload_to='df_goods')),
+                ('gprice', models.DecimalField(verbose_name='价钱', max_digits=5, decimal_places=2)),
                 ('isDelete', models.BooleanField(default=False)),
-                ('gunit', models.CharField(default=b'500g', max_length=20, verbose_name='\u5355\u4f4d')),
-                ('gclick', models.IntegerField(verbose_name='\u70b9\u51fb')),
+                ('gunit', models.CharField(verbose_name='单位', max_length=20, default='500g')),
+                ('gclick', models.IntegerField(verbose_name='点击')),
                 ('gjianjie', models.CharField(max_length=200)),
-                ('gkucun', models.IntegerField(verbose_name='\u5e93\u5b58')),
-                ('gcontent', tinymce.models.HTMLField(verbose_name='\u63cf\u8ff0')),
+                ('gkucun', models.IntegerField(verbose_name='库存')),
+                ('gcontent', tinymce.models.HTMLField(verbose_name='描述')),
             ],
             options={
-                'verbose_name_plural': '\u6c34\u679c',
+                'verbose_name_plural': '水果',
             },
         ),
         migrations.CreateModel(
             name='TypeInfo',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('ttitle', models.CharField(max_length=20, verbose_name='\u79cd\u7c7b')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('ttitle', models.CharField(verbose_name='种类', max_length=20)),
                 ('isDelete', models.BooleanField(default=False)),
             ],
             options={
-                'verbose_name_plural': '\u6c34\u679c\u7c7b\u578b\u4fee\u6539',
+                'verbose_name_plural': '水果类型修改',
             },
         ),
         migrations.AddField(
