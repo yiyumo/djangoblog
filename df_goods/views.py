@@ -30,6 +30,8 @@ def index(request):
     # type5 = typelist[5].goodsinfo_set.order_by('-id')[0:4]
     # type51 = typelist[5].goodsinfo_set.order_by('-gclick')[0:4]
     # 构造上下文
+
+    
     context = {'title': '首页', 'guest_cart': 1,
                'type0': type0, 'type01': type01,
                # 'type1': type1, 'type11': type11,
